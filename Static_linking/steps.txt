@@ -1,0 +1,55 @@
+Steps to make a Static library:
+
+1) Create object files of all source files 
+2) Use the following command to make library
+    ar rcs lib_name.a <object files>
+    ar-> archieve
+    rcs-> will create library if not present, if present it updates the library
+    <object files> ->Add all the object files of functions you wish
+3) Now linking
+    gcc -o name.exe <main.o> -L . <lib_name.a>
+    . -> relative or absolute path of library
+    -L -> used to include library
+4) ./name.exe
+
+Note:
+Static library
+.a -> Linux
+.lib -> Windows
+
+Dynamic library
+.so -> Linux
+.dll -> Windows
+
+Lets say you have one.o and two.o
+In them let's say one.o has funcions funca() and funcb()
+two.o has funcc()
+
+one.o
+    funca()
+    funcb()
+
+two.o 
+    funcc()
+
+I will create a librar of these files, so
+
+lib_cal.a
+    one.o
+        funca()
+        funcb()
+    two.o
+        funcc()
+
+I have main function in which in have prototype of only funca()
+
+now i will create executable
+
+Important:
+This executable now will have copy of one.o only
+so funca() and funcb() will be copied to executable.
+two.o won't be loaded into executable.
+
+Conclusion: If we use a function then whole file which contains that function will be copied to
+executable and other .o files in library won't be copied into executable.
+
