@@ -53,3 +53,5 @@ two.o won't be loaded into executable.
 Conclusion: If we use a function then whole file which contains that function will be copied to
 executable and other .o files in library won't be copied into executable.
 
+link: https://www.youtube.com/watch?v=3RmIVDgPmGk
+
